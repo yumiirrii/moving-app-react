@@ -1,0 +1,75 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+#App {
+  font-family: Segoe UI;
+  text-align: center;
+}
+
+/* AddTodo, AddTobuy */
+input[type="text"], input[type="number"], input[type="date"] {
+  padding: 10px 20px;
+  margin: 5px 0 10px 0;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+button {
+  font-size: 16px;
+  padding: 8px 15px;
+  margin: 10px 0;
+  border: 2px solid;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.input-area {
+  width: 60%;
+  margin: 0 auto 30px;
+}
+
+/* TodoList, TobuyList */
+.item-list {
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 2px solid;
+  padding-bottom: 20px;
+}
+
+.moved-item-list {
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.items {
+  padding: 30px;
+}
+
+.item {
+  display: grid;
+  /* grid-template-columns: 1.7fr 4.5fr 2.5fr 0.5fr 0.5fr; */
+  grid-template-columns: 1fr 3fr 2fr 1fr 1fr;
+  grid-template-rows: 50px;
+  gap: 20px;
+}
+
+.item > div {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+}
