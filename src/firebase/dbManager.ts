@@ -8,26 +8,26 @@ export const getAll = async(collectionName: string) => {
   querySnapshot.forEach((doc) => {
     const id = doc.id
     const data = doc.data()
-    // if (collectionName === 'todos') {
+    if (collectionName === 'todos') {
       docRefs.push({
         id,
         task: data.task,
         dueDate: data.dueDate.toDate().toISOString().slice(0, 10),
-        // doneDate: data.doneDate ? data.doneDate.toDate() : '',
+        doneDate: data.doneDate ? data.doneDate.toDate().toISOString().slice(0, 10) : '',
         isDone: data.isDone,
-        // updatedDate: data.updatedDate ? data.updatedDate.toDate() : '',
+        updatedDate: data.updatedDate ? data.updatedDate.toDate() : '',
       })
-    // }
-    // if (collectionName === 'tobuys') {
-    //   docRefs.push({
-    //     id,
-    //     item: data.item,
-    //     price: data.price,
-    //     isBought: data.isBought,
-    //     createdDate: data.createdDate.toDate(),
-    //     updatedDate: data.updatedDate ? data.updatedDate.toDate() : '',
-    //   })   
-    // }
+    }
+    if (collectionName === 'tobuys') {
+      docRefs.push({
+        id,
+        item: data.item,
+        price: data.price,
+        isBought: data.isBought,
+        createdDate: data.createdDate.toDate(),
+        updatedDate: data.updatedDate ? data.updatedDate.toDate() : '',
+      })   
+    }
   })
   return docRefs
 }

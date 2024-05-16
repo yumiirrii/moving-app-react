@@ -22,8 +22,8 @@ export const TodoView: React.FC = () => {
 
   const fetchData = async () => {
     const data: Todo[] = await getAll('todos');
-    setTodos(data.filter(item => !item.isDone));
-    setDones(data.filter(item => item.isDone));
+    setTodos((data.filter(item => !item.isDone)).sort((a: Todo, b: Todo) => a.dueDate.localeCompare(b.dueDate)));
+    setDones((data.filter(item => item.isDone)).sort((a: Todo, b: Todo) => a.dueDate.localeCompare(b.doneDate)));
   };
 
   const saveItem = async (todo: Todo) => {
@@ -32,7 +32,7 @@ export const TodoView: React.FC = () => {
     fetchData();
   }
 
-  const moveTodo = async (index: number) => {
+  const moveItem = async (index: number) => {
     const todo: Todo = todos[index];
     todo.isDone = true;
     todo.doneDate = new Date().toISOString().slice(0, 10);
@@ -58,7 +58,7 @@ export const TodoView: React.FC = () => {
       <TodoList
         todos={todos}
         dones={dones}
-        moveTodo={moveTodo}
+        moveTodo={moveItem}
         editTodo={editItem}
         deleteTodo={deleteItem}
       />

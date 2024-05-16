@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { TodoView } from './TodoView';
+import { TobuyView } from './TobuyView';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </a>
       </header> */}
       <TodoView />
+      <TobuyView />
     </div>
   );
 }

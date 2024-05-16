@@ -5,6 +5,7 @@ interface Todo {
   id: string;
   task: string;
   dueDate: string;
+  doneDate: string;
   isDone: boolean;
 }
 
@@ -29,6 +30,13 @@ const Button = styled.button`
 
 export const TodoList: React.FC<TodoListProps> = ({todos, dones, moveTodo, editTodo, deleteTodo}) => {
 
+  const isOverdue = (dueDate: string) => {
+    if (dueDate < new Date().toISOString().slice(0, 10)) {
+      return { color: "red" };
+    }
+    return { color: "black" };
+  }
+
   return (
     <div className='items'>
       <ul className='item-list'>
@@ -40,7 +48,7 @@ export const TodoList: React.FC<TodoListProps> = ({todos, dones, moveTodo, editT
             <div>
               {todo.task}
             </div>
-            <div>
+            <div style={isOverdue(todo.dueDate)}>
               {todo.dueDate}
             </div>
             <div>
@@ -59,8 +67,8 @@ export const TodoList: React.FC<TodoListProps> = ({todos, dones, moveTodo, editT
             <div>
               {done.task}
             </div>
-            <div>
-              {done.dueDate}
+            <div style={{ color: "gray" }}>
+              {done.doneDate}
             </div>
             <div></div>
             <div>
