@@ -17,12 +17,12 @@ interface TobuyListProps {
 }
 
 const Button = styled.button`
-  border-color: #000066;
+  border-color: #FF0099;
   background-color: white;
-  color: #000066;
+  color: #FF0099;
 
   &:hover {
-    background-color: #000066;
+    background-color: #FF0099;
     color: white;
   }
 `
@@ -57,7 +57,7 @@ export const TobuyList: React.FC<TobuyListProps> = ({tobuys, boughts, moveTobuy,
               {tobuy.item}
             </div>
             <div>
-              {tobuy.price.toLocaleString()}
+              ¥ {tobuy.price.toLocaleString()}
             </div>
             <div>
               <Button onClick={() => editTobuy(index)}>edit</Button>
@@ -79,7 +79,7 @@ export const TobuyList: React.FC<TobuyListProps> = ({tobuys, boughts, moveTobuy,
               {bought.item}
             </div>
             <div>
-              {bought.price.toLocaleString()}
+              ¥ {bought.price.toLocaleString()}
             </div>
             <div></div>
             <div>

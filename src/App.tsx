@@ -1,29 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import { TodoView } from './TodoView';
 import { TobuyView } from './TobuyView';
 
 function App() {
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <TodoView />
-      <TobuyView />
-    </div>
+    <Router>
+      <div className="App">
+        <h1>
+          Moving App 
+        </h1> 
+        <nav>
+          <NavLink to="/todo" className={({ isActive }) => (isActive ? 'active-todo' : '')}>todo</NavLink> | 
+          <NavLink to="/tobuy" className={({ isActive }) => (isActive ? 'active-tobuy' : '')}>tobuy</NavLink>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Navigate to="/todo" />} />
+          <Route path="/todo" element={<TodoView />} />
+          <Route path="/tobuy" element={<TobuyView />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

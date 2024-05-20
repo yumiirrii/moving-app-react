@@ -53,13 +53,13 @@ export const AddTobuy: React.FC<AddTobuyProps> = ({saveTobuy, editingTobuy}) => 
   }
 
   const Button = styled.button`
-  border-color: #000066;
-  background-color: #000066;
+  border-color: #FF0099;
+  background-color: #FF0099;
   color: white;
 
   &:hover {
     background-color: white;
-    color: #000066;
+    color: #FF0099;
   }
 `
   
